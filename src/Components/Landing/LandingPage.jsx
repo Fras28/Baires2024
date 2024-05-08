@@ -1,12 +1,9 @@
 import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "./LandingPage.css";
-
 import Logo from "../assets/Logo.png";
 import { VerPedido } from "../BtnBag/BtnBag";
-
 import { useDispatch, useSelector } from "react-redux";
-
 import Spinner from "../assets/Spinner/Spinner";
 import Horarios from "../BtnNavidad/Horarios";
 
@@ -23,7 +20,7 @@ export default function LandingPage(url) {
       <div className="naviLanding titCasa ">
         <div className="logoL">
           <NavLink to={`/${id}`}>
-            <img     src={`${API}${comercio?.attributes?.logo?.data?.attributes?.url}`} alt="" width="250px" />
+            <img     src={Logo} alt="" width="250px" />
           </NavLink>
         </div>
         <div className="navi2">
