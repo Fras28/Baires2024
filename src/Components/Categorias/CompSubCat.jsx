@@ -65,7 +65,7 @@ export const CompSubCat = ({ idCat }) => {
  
         {articulos?.length > 0 ? (
    <div className="sectioner" style={{backgroundColor:`${comercio.attributes.rgb}`}}>
-    <p> Secciones : </p>
+    <p > Secciones : </p>
    {processedNames.length > 0 && processedNames.map((name, index) => (
      <a key={index} href={`#${articulos[index].id}`}>
         {name}
