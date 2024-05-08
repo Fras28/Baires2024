@@ -26,7 +26,6 @@ export default function ModalGen({ Child, txtBtn }) {
   const { categorias } = useSelector((state) => state.alldata);
   const solo_ids = categorias?.map((cat) => cat.id) || [];
 
-
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -38,7 +37,11 @@ export default function ModalGen({ Child, txtBtn }) {
   return (
     <div>
       <div>
-        <button onClick={handleClickOpen} className="generic buttonDash" disabled={loading}>
+        <button
+          onClick={handleClickOpen}
+          className="generic buttonDash"
+          disabled={loading}
+        >
           {txtBtn ? txtBtn : "+ Proveedor"}
         </button>
       </div>

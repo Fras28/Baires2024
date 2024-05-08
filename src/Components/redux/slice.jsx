@@ -159,9 +159,9 @@ const IDENTIFIERU = process.env.REACT_APP_IDENTIFIER;
 const PASSWORDU = process.env.REACT_APP_PASSWORD;
 const API_SUBCAT= process.env.REACT_APP_API_STRAPI_SUBCATEGORIAS;
 const API_GENERAL = process.env.REACT_APP_API_STRAPI;
-const API_INICIO = process.env.REACT_APP_API_INICIO
+const API_INICIO = process.env.REACT_APP_API_INICIO;
 const API_2  = process.env.REACT_APP_API_CATEGORIA;
-const API_BASE = process.env.REACT_APP_API_COMERCIO
+const API_BASE = process.env.REACT_APP_API_COMERCIO;
 
 
 
@@ -176,9 +176,9 @@ export const asyncAllProducts= () => {
       console.log("ejecutando async PRODUCTS");
       const response = await axios.get(`${API_BASE}${comercio}?populate=categorias.sub_categorias.articulos`);
 
-      const articulosExtraidos = extraerArticulos(response.data.data);
+      const articulos = extraerArticulos(response.data.data);
 
-      return dispatch(allProducts(articulosExtraidos));
+      return dispatch(allProducts(articulos));
     } catch (error) {
       console.error("Error al obtener los artículos:", error);
     }

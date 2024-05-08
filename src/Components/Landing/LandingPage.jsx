@@ -10,17 +10,20 @@ import { useDispatch, useSelector } from "react-redux";
 import Spinner from "../assets/Spinner/Spinner";
 import Horarios from "../BtnNavidad/Horarios";
 
+
 export default function LandingPage(url) {
   const { comercio, categorias } = useSelector((state) => state.alldata);
   const API = process.env.REACT_APP_API_STRAPI;
   const id = url.location.pathname.slice(1, 3);
+
+
   return (
     <div className="animate__animated  animate__zoomIn">
-      {!categorias ? <Spinner imageUrl={Logo} /> : null}
+      {!categorias ? <Spinner /> : null}
       <div className="naviLanding titCasa ">
         <div className="logoL">
           <NavLink to={`/${id}`}>
-            <img src={Logo} alt="" width="250px" />
+            <img     src={`${API}${comercio?.attributes?.logo?.data?.attributes?.url}`} alt="" width="250px" />
           </NavLink>
         </div>
         <div className="navi2">
@@ -68,11 +71,13 @@ export default function LandingPage(url) {
                   src={categoria?.attributes?.picture?.data != null ?
                     API +
                       categoria?.attributes?.picture?.data?.attributes?.formats
-                        ?.small?.url : Logo
+                        ?.small?.url : `${API}${comercio?.attributes?.logo?.data?.attributes?.url}`
                   }
                   alt="fotito"
                 />
-                <p>{categoria?.attributes?.name}</p>
+                <div>
+                 <p className="textCat">{categoria?.attributes?.name.replace(/\[.*?\]/g, '')}</p>
+                </div>
               </div>
             </NavLink>
           ))}
@@ -88,7 +93,7 @@ export default function LandingPage(url) {
         >
           <path d="M59 0.999995L0 1" stroke="#E88A23" />
         </svg>
-        <p className="naviTit3"> Seguinos en </p>
+        <p className="naviTit3" style={{ backgroundColor:`${comercio?.attributes?.rgb}`}}> Seguinos en </p>
         <svg
           width="59"
           height="2"

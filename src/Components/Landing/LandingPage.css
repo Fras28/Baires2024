@@ -37,10 +37,12 @@
   height: 70%;
   border-radius:16px 16px 0 0 ;
 }
-.titInicio >p{
+.textCat{
   margin: auto;
   padding: 0 0.5rem;
   color: black;
+  font-size: 12px;
+  padding-top: .5rem;
 
 }
 .naviLanding {

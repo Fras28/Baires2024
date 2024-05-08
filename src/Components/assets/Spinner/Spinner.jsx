@@ -1,5 +1,6 @@
 import React from 'react';
 import './Spinner.css'; // Asegúrate de ajustar la ruta correcta
+import Logo from "../Logo.png"
 
 const Spinner = ({ imageUrl, width = '200px', height = '200px' }) => {
   return (

@@ -5,7 +5,7 @@ import { asyncAllProducts, asyncArticulos, asyncSubCategoria } from "../redux/sl
 
 export const Editer = () => {
   const dispatch = useDispatch();
-  const { subCategorias,allProduct } = useSelector((state) => state.alldata);
+  const { allProduct } = useSelector((state) => state.alldata);
 
   useEffect(()=>{
     dispatch(asyncAllProducts())
