@@ -75,7 +75,9 @@ export default function LandingPage(url) {
                   }
                   alt="fotito"
                 />
-                 <p>{categoria?.attributes?.name.replace(/\[.*?\]/g, '')}</p>
+                <div>
+                 <p className="textCat">{categoria?.attributes?.name.replace(/\[.*?\]/g, '')}</p>
+                </div>
               </div>
             </NavLink>
           ))}
