@@ -1,66 +1,75 @@
-
-h1{
-    color: rgb(255, 255, 255) ;
-    margin-top: 0;
-    margin-bottom: 0;
-}
-.subName{
-    color: white;
-    margin-top: 0;
+h1 {
+  color: rgb(255, 255, 255);
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
+.subName {
+  color: white;
+  margin-top: 0;
+}
 
-.nav{
+.nav {
   display: flex;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 9999;
-  justify-content: space-evenly;
-  padding-bottom: 2%;
-  border-bottom:  1px solid orange;
-  background-image: url("../assets/bgNav.png");
-  min-height: 80px;
+  justify-content: space-between;
+  border-bottom: 1px solid orange;
+  background-image: url("../assets/NavMadre.png");
+  min-height: 100px;
 }
-  /*============= Search bar ==========*/
-.back{
 
-  margin-left: .5rem;
+/*============= Search bar ==========*/
+.back {
+  margin-left: 0.5rem;
   margin-top: 10px;
-
 }
-.back > svg{
+
+.back > svg {
   margin-bottom: -2.5px;
-  filter: drop-shadow(8px 8px 4px black );
-  
-
 }
-.morton{
+
+.morton {
   margin-top: 20px;
-
 }
-.backLink{
+
+.backLink {
   display: none;
 }
 
-.bakBagBtn{
+.bakBagBtn {
   display: none;
 }
+
+.linkRedes {
+  display: "flex";
+  flex-direction: "column";
+  gap: ".5rem";
+}
+
 @media (max-width: 600px) {
-  .back:hover{
+  .back:hover {
     box-shadow: 1px 2px 1px black;
   }
-  .nav{
-    justify-content: flex-start
-  }
-  .backLink{
-    display: block;
 
+  .backLink {
+    display: block;
   }
-  .morton{
-    margin:auto;
- }
-    .bakBagBtn{
-      display: block;
-    }
+
+  .nav {
+    padding: 1 0.5rem;
+    min-height: 80px;
+  }
+
+  .morton {
+    margin: auto;
+  }
+
+  .bakBagBtn {
+    display: flex;
+    justify-content: center;
+    width: 40px;
+  }
 }

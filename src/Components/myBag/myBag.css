@@ -100,9 +100,7 @@ margin-top: 2rem;
 
 
 @media (max-width: 600px) {
-.nav{
-  justify-content: flex-start
-}
+
 .btnBack{
   outline: #c1373e double 1px;
   background-color: #295db1;
