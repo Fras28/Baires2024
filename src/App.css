@@ -6,6 +6,16 @@ font-family: 'Sono', sans-serif; */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 /* font-family: 'Montserrat', sans-serif; */
 
+@font-face {
+  font-family: 'Highrise';
+  src: url('Components/assets/fonts/highrise/HighriseFont-Demo-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+
 .App {
   text-align: center;
   background-image:url("../src/Components/assets/bgMadre2.png");
