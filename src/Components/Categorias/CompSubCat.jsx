@@ -78,12 +78,13 @@ export const CompSubCat = ({ idCat }) => {
         {articulos?.length > 0 ? (
           <div className="conteinerLB2 animate__animated  animate__zoomIn animate__faster">
             <div className="conteinerLB2 animate__animated animate__zoomIn animate__faster">
-              {articulos?.map((prod) => (
+              {articulos?.map((subCat) => (
+                subCat.attributes.publishedAt != null?
                 <div >
-                  <div id={prod.id} style={{height:"110px"}} ></div>
+                  <div id={subCat.id} style={{height:"110px"}} ></div>
               
-                  <Cards products={prod} />
-                </div>
+                  <Cards products={subCat} />
+                </div>:null
               ))}
             </div>
           </div>
