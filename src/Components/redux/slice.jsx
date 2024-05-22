@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const initialState = {
   allProduct: [],
   copyallProducts: [],
+  productCom:[],
   favProd: [],
   categorias:[],
   subCategorias:[],
@@ -38,6 +39,12 @@ export const dataSlice = createSlice({
       return {
         ...state,
         categorias: action.payload,
+      };
+    },
+    ProductsComander: (state, action) => {
+      return {
+        ...state,
+        productCom: action.payload,
       };
     },
 
@@ -159,9 +166,10 @@ const IDENTIFIERU = process.env.REACT_APP_IDENTIFIER;
 const PASSWORDU = process.env.REACT_APP_PASSWORD;
 const API_SUBCAT= process.env.REACT_APP_API_STRAPI_SUBCATEGORIAS;
 const API_GENERAL = process.env.REACT_APP_API_STRAPI;
-const API_INICIO = process.env.REACT_APP_API_INICIO;
+const API_INICIO = process.env.REACT_APP_API_INICIO
 const API_2  = process.env.REACT_APP_API_CATEGORIA;
-const API_BASE = process.env.REACT_APP_API_COMERCIO;
+const API_BASE = process.env.REACT_APP_API_COMERCIO
+const API_COMANDER_ART = process.env.REACT_APP_API_ARTICULOS_CATEGORIAS
 
 
 
@@ -176,9 +184,24 @@ export const asyncAllProducts= () => {
       console.log("ejecutando async PRODUCTS");
       const response = await axios.get(`${API_BASE}${comercio}?populate=categorias.sub_categorias.articulos`);
 
-      const articulos = extraerArticulos(response.data.data);
+      const articulosExtraidos = extraerArticulos(response.data.data);
 
-      return dispatch(allProducts(articulos));
+      return dispatch(allProducts(articulosExtraidos));
+    } catch (error) {
+      console.error("Error al obtener los artículos:", error);
+    }
+  };
+};
+
+export const asyncProductComander= () => {
+  return async function (dispatch) {
+    try {
+      console.log("ejecutando async asyncProductComander");
+      const response = await axios.get(API_COMANDER_ART);
+
+      const articulosExtraidos = response.data.data.attributes.categorias.data;
+
+      return dispatch(ProductsComander(articulosExtraidos));
     } catch (error) {
       console.error("Error al obtener los artículos:", error);
     }
@@ -403,22 +426,27 @@ export const asyncLogIn = ({email,password}) => {
 
 
 
-export const asyncEditProd = (data) => {
+export const asyncEditProd = (data, id) => {
   return async function (dispatch, getState) {
     const initialState = getState();
     const usuarioComander = initialState?.alldata?.usuarioComander;
 
     try {
-  
-      const response = await axios.put(API_GENERAL.concat(`/api/articulos/${data.data.id}`), data, {
+      const response = await axios.put(`${API_GENERAL}/api/articulos/${id}`, data, {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${usuarioComander}`,
         },
       });
-      console.log("producto editado creo q correctamente")
-console.log(response);
-      return  asyncAllProducts();
+      console.log("producto editado creo q correctamente");
+      console.log(response);
+
+      // Si asyncAllProducts es una acción de thunk, despacharla
+      if (typeof asyncAllProducts === 'function') {
+        dispatch(asyncAllProducts());
+      }
+      toast.success("Producto editado correctamente!");
+
     } catch (error) {
       console.error("Error fetching data EditProd Slice:", error);
     }
@@ -530,7 +558,7 @@ export const asyncPedidoRealizado = (comanda) => {
 
 //----------------------------------------------------------------------------------------------------------------
 
-export const { allProducts, favProducts, cancelBagProducts, SearchProducts, allCategorias,allSubCategorias, fillComercio, fillClave, fillComanda,fillUsuario, fillProvee } =
+export const { allProducts, favProducts, cancelBagProducts, SearchProducts, allCategorias,allSubCategorias, fillComercio, fillClave, fillComanda,fillUsuario, fillProvee,ProductsComander } =
   dataSlice.actions;
 
 export default dataSlice.reducer;

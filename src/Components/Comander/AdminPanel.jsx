@@ -6,7 +6,9 @@ import ModalGen from "../Modal/ModalConfirmacion/Modal";
 import { Editer } from "../Categorias/Editer";
 import { useDispatch, useSelector } from "react-redux";
 import LoginComponent from "./LogIn/LogIn";
-import { asyncSubCategoria} from "../redux/slice";
+import { asyncProductComander, asyncSubCategoria} from "../redux/slice";
+import PdfGeneratos from "./PDF/pdf";
+import QRCodeGenerator from "./QrGen/QrGeneratos";
 
 
 
@@ -14,6 +16,9 @@ export const AdminPanel = () => {
   const dispatch = useDispatch();
   const [panel, setPanel] = useState("General");
   const { usuarioComander } = useSelector((state) => state.alldata);
+  useEffect(()=>{
+    dispatch(asyncProductComander())
+  },[usuarioComander])
 
   return (
     <>
@@ -24,6 +29,9 @@ export const AdminPanel = () => {
           <button className="buttonDash" onClick={() => setPanel("Estadisticas")}>Estadisticas</button>
           <button className="buttonDash" onClick={() => setPanel("Otros")}>Otros</button>
           <ModalGen Child={<Editer />} txtBtn="Editar Producto"  />
+          <ModalGen Child={<PdfGeneratos/>} txtBtn="PDF Carta"  />
+          <ModalGen Child={<QRCodeGenerator/>} txtBtn="Generar QRS"  />
+        
           </div>
           
           {/* Aquí puedes renderizar el panel según el estado "panel" */}

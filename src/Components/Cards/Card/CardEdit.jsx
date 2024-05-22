@@ -14,8 +14,6 @@ export const CardEdite = ({ producto }) => {
   });
   const product = producto.attributes;
 
-console.log(product, "en CardEdite");
-
   const editLogo = (
     <svg
       width="30"

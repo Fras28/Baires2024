@@ -50,6 +50,7 @@ function App() {
 
   return (
     <div className="App">
+      <ToastContainer style={{zIndex:99999999}}/>
       <Switch>
         <Route exact path="/Comander" component={AdminPanel} />
         <Route exact path="/:id?" component={Inicio} />
