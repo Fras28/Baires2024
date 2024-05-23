@@ -33,20 +33,25 @@ export const Card = ({ producto }) => {
   let cancelFav = () => {
     dispatch(asyncCancelFav(producto));
   };
-
+console.log(product.txtPrecio1);
   return (
     <div className="contCard">
-      <div className="leftInfo">
         <h2 className="nameProd">{product.name}</h2>
+        <div style={{display:"flex", justifyContent:"space-between", gap:".5rem"}}> 
+
+      <div className="leftInfo">
         <p className="detProd">{product.detail}</p>
-    
         {product.price2?
         <div style={{display:"flex", gap:"1.5rem", marginTop:".5rem"}}>
-        <p className="price"> <b style={{border:" solid 2px orange", borderRadius:"50%", padding:"1px 5px"}}>C</b>  - ${product.price}</p>
-        {product.price2?<p className="price"><b style={{border:" solid 2px orange", borderRadius:"50%", padding:"1px 3px"}}>M</b> - ${product.price2}</p>:null}
-       {product.price3 ?<p className="price"><b style={{border:" solid 2px orange", borderRadius:"50%", padding:"1px 5px"}}>G</b> - ${product.price3}</p>:null}
+        <p className="price"> <b style={{ borderRadius:"50%", padding:"1px 5px"}}><b>{product.txtPrecio1}</b></b>  - ${product.price}</p>
+        {product.price2?<p className="price"><b style={{ borderRadius:"50%", padding:"1px 3px"}}><b>{product.txtPrecio1}</b></b> - ${product.price2}</p>:null}
+       {product.price3 ?<p className="price"><b style={{ borderRadius:"50%", padding:"1px 5px"}}>G</b> - ${product.price3}</p>:null}
         </div>: <p className="price">${product.price}</p>}
-      </div>
+          
+          </div>
+      
+        </div>
+        
       {/* <div className="rightInfo">
         <div className="divBtnProd">
           {thisFav.length === 0 ? (
