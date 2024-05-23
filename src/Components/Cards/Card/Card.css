@@ -101,7 +101,6 @@
 }
 .contCard {
   align-content: flex-start;
-  align-items: center;
   background-color: whitesmoke;
   display: flex;
   justify-content: space-between;
