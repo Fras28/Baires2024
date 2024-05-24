@@ -32,6 +32,7 @@ export const Cards = ({ products }) => {
 
   return (
     <>
+      
       {products.attributes.articulos.data.length !== 0 ? (
         <div className="carta">
           <h2

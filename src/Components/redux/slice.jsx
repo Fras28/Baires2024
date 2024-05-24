@@ -287,7 +287,7 @@ export const asyncSubCategoria = (id) => {
 
   return async function (dispatch) {
     try {
-      const response = await axios.get(API_2+id+"?populate=sub_categorias.articulos");
+      const response = await axios.get(API_2+id+"?populate=picture&populate=sub_categorias.articulos");
 
       const subCategorias = response.data.data;
 

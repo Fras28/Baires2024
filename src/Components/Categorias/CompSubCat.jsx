@@ -26,8 +26,8 @@ export const CompSubCat = ({ idCat }) => {
     articulosParaFiltrar.length > 0
       ? articulosParaFiltrar[0].attributes.sub_categorias.data
       : [];
-
-
+const imagenCat = articulosParaFiltrar[0]?.attributes?.picture?.data?.attributes.url
+console.log("buscando formato", imagenCat);
   const Productos = allProduct?.filter(
     (e) => e.attributes?.categorias?.data.id === idCat
   );
@@ -78,10 +78,14 @@ export const CompSubCat = ({ idCat }) => {
         {articulos?.length > 0 ? (
           <div className="conteinerLB2 animate__animated  animate__zoomIn animate__faster">
             <div className="conteinerLB2 animate__animated animate__zoomIn animate__faster">
-              {articulos?.map((subCat) => (
+              {articulos?.map((subCat,index) => (
                 subCat.attributes.publishedAt != null?
                 <div >
-                  <div id={subCat.id} style={{height:"110px"}} ></div>
+              
+                  <div id={subCat.id}className="contImg">
+                    {index === 0 ? <img src={API+imagenCat} alt="" className="imgSection"/> : null}
+                   
+                    </div>
               
                   <Cards products={subCat} />
                 </div>:null
