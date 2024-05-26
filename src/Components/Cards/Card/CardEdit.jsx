@@ -69,14 +69,12 @@ export const CardEdite = ({ producto }) => {
       <div className="cardContentEdit">
         <p className="nameProdEdit">{product.name}</p>
         <p className="priceEdit">${product.price}</p>
-        <p className="currentDate">{`Fecha actual: ${currentDate}`}</p>
       </div>
-      <div className="divBtnProd">
+      <div className="btnsEditCard">
         <ModalGen
           txtBtn={editLogo}
           Child={<EditProduct product={product} id={producto.id} />}
         />
-      </div>
       <div className="toggleContainer">
         <label className="toggle-switch">
           <input type="checkbox" checked={isPublished} onChange={handleToggle} />
@@ -84,6 +82,7 @@ export const CardEdite = ({ producto }) => {
             <div className="toggle-switch-handle"></div>
           </div>
         </label>
+      </div>
       </div>
     </div>
   );

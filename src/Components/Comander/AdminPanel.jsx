@@ -24,7 +24,7 @@ export const AdminPanel = () => {
     <>
       {usuarioComander?
         <div>
-          <div style={{padding:"1rem",display:"flex", justifyContent:"center" ,gap:"1rem"}}>
+          <div className="adminBar">
           <button className="buttonDash" onClick={() => setPanel("General")}>General</button>
           <button className="buttonDash" onClick={() => setPanel("Estadisticas")}>Estadisticas</button>
           <button className="buttonDash" onClick={() => setPanel("Otros")}>Otros</button>

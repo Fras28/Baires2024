@@ -145,6 +145,9 @@ width: 75%;
   .cont3 {
     display: none;
   }
+  .comandas-container {
+    display: none;
+  }
 }
 
 .FacturasCont {
