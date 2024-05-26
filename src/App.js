@@ -1,28 +1,21 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Route, Switch } from "react-router-dom";
-import Landing from "./Components/Landing/LandingPage.jsx";
 import "./App.css";
-
 import { Foot } from "./Components/Footer/Footer.jsx";
 import { MyFoot } from "./Components/myFoot/MyFooter.jsx";
 import { Inicio } from "./Components/LandingStart/LandingStart.jsx";
 import LandingPage from "./Components/Landing/LandingPage.jsx";
-
 import { BagXX } from "./Components/myBag/myBag.jsx";
 import {
-  asyncCategorias,
   asyncComercio,
-  asyncSubCategorias,
   asyncUser,
 } from "./Components/redux/slice.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import store, { saveStateToLocalStorage } from "./Components/redux/store.jsx";
 import { ToastContainer } from "react-toastify";
-
 import { CompSubCat } from "./Components/Categorias/CompSubCat.jsx";
 import { AdminPanel } from "./Components/Comander/AdminPanel.jsx";
 // import { Bag } from './Components/Categorias/Bag.jsx';
-
+const API = process.env.REACT_APP_API_STRAPI;
 function App() {
   const dispatch = useDispatch();
   const { allProduct, favProd, categorias, comercio } = useSelector(
@@ -49,7 +42,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundImage: `url(${API + (comercio?.attributes?.fondo?.data?.attributes?.url)})` }}>
       <ToastContainer style={{zIndex:99999999}}/>
       <Switch>
         <Route exact path="/Comander" component={AdminPanel} />

@@ -229,7 +229,7 @@
   display: none;
 }
   .LandingBack {
-    background-image: url("../assets/bgMadre2.png");
+    /* background-image: url("../assets/bgMadre2.png"); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -242,6 +242,6 @@
   }
 
   .contAlerStart{
-    padding-top: 5rem;
+    padding-top: 2rem;
   }
 }

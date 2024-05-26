@@ -17,10 +17,10 @@ export default function LandingPage(url) {
   return (
     <div className="animate__animated  animate__zoomIn">
       {!categorias ? <Spinner /> : null}
-      <div className="naviLanding titCasa ">
+      <div className="naviLanding titCasa " style={{ backgroundImage: `url(${API + (comercio?.attributes?.fondo?.data?.attributes?.url)})` }}>
         <div className="logoL">
           <NavLink to={`/${id}`}>
-            <img     src={Logo} alt="" width="250px" />
+            <img     src={API+comercio?.attributes?.logo?.data?.attributes.url} alt="" width="250px" />
           </NavLink>
         </div>
         <div className="navi2">
@@ -47,7 +47,7 @@ export default function LandingPage(url) {
       </div>
 
       <div className="conteinerLB2  ">
-        <div className="rowsCardL">
+        <div className="rowsCardL" style={{ backgroundColor: comercio?.attributes?.rgb}}>
           {categorias?.map((categoria, index) => (
             categoria.attributes.publishedAt != null ?
             <NavLink

@@ -37,6 +37,7 @@ export const Cards = ({ products }) => {
         <div className="carta">
           <h2
             className="titleSection"
+            style={{backgroundColor:`${comercio.attributes.rgb}`}}
           >
             {loguitoSection}
             <div>

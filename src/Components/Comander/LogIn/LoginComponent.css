@@ -1,67 +1,46 @@
 /* Estilos generales */
 body {
-    font-family: 'Arial', sans-serif;
-  }
+  font-family: "Arial", sans-serif;
+}
 
-  
-  /* Estilos del modal */
-  .modal-overlay {
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .modal-content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-  }
-  
-.toggle-password{
+/* Estilos del modal */
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.toggle-password {
   padding: 0;
   background-color: transparent;
-  
 }
-  
 
+/* Estilos del botón de cierre del modal */
+.modal-close {
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
 
-  
+.modal-close:hover {
+  background-color: #c0392b;
+}
+/* Media query para dispositivos móviles */
 
-
-
-
-  /* Estilos del botón de cierre del modal */
-  .modal-close {
-    background-color: #e74c3c;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
-  }
-  
-  .modal-close:hover {
-    background-color: #c0392b;
-  }
-  /* Media query para dispositivos móviles */
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /* LoginComponent.css */
+/* LoginComponent.css */
 
 /* Fondo del modal */
 .bgModal {
@@ -75,15 +54,16 @@ body {
   justify-content: center;
   align-items: center;
   height: 100dvh;
-  background-color: #282A36;
+  background-color: #282a36;
+  border-radius: 12px;
 }
 
 /* Estilos para la sección izquierda del formulario */
 .leftLogin {
   flex: 1;
   padding: 5em;
+  border-radius: 8px;
 }
-
 
 /* Estilos para la sección derecha del formulario */
 .rightLogin {
@@ -111,7 +91,6 @@ body {
   font-weight: bold;
 }
 
-
 .form-input {
   width: 100%;
   padding: 10px;
@@ -134,4 +113,10 @@ body {
 
 .login-submit:hover {
   background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse */
+}
+
+@media (max-width: 600px) {
+  .login-container {
+    flex-direction: column;
+  }
 }
