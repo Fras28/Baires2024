@@ -7,7 +7,6 @@ import { VerPedido } from "../BtnBag/BtnBag.jsx";
 import Spinner from "../assets/Spinner/Spinner.jsx";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min.js";
 import { asyncSubCategoria } from "../redux/slice.jsx";
-import Logo from "../assets/Logo.png"
 
 const API = process.env.REACT_APP_API_STRAPI;
 
@@ -26,8 +25,8 @@ export const CompSubCat = ({ idCat }) => {
     articulosParaFiltrar.length > 0
       ? articulosParaFiltrar[0].attributes.sub_categorias.data
       : [];
-const imagenCat = articulosParaFiltrar[0]?.attributes?.picture?.data?.attributes.url
-console.log("buscando formato", imagenCat);
+
+
   const Productos = allProduct?.filter(
     (e) => e.attributes?.categorias?.data.id === idCat
   );
@@ -59,13 +58,13 @@ console.log("buscando formato", imagenCat);
       .join(""); // Unir las partes filtradas en una sola cadena
   });
   return (
-    <div className="containerL" style={{backgroundColor:`${comercio?.attributes?.rgb}`, backgroundSize:"cover", width:"100%"}}>
+    <div className="containerL" >
       <Nav id={id} />
       <div className="sectioner">
  
         {articulos?.length > 0 ? (
-   <div className="sectioner" style={{backgroundColor:`${comercio.attributes.rgb}`}}>
-    <p > Secciones : </p>
+   <div className="sectioner">
+    <p> Secciones : </p>
    {processedNames.length > 0 && processedNames.map((name, index) => (
      <a key={index} href={`#${articulos[index].id}`}>
         {name}
@@ -78,22 +77,17 @@ console.log("buscando formato", imagenCat);
         {articulos?.length > 0 ? (
           <div className="conteinerLB2 animate__animated  animate__zoomIn animate__faster">
             <div className="conteinerLB2 animate__animated animate__zoomIn animate__faster">
-              {articulos?.map((subCat,index) => (
-                subCat.attributes.publishedAt != null?
+              {articulos?.map((prod) => (
                 <div >
+                  <div id={prod.id} style={{height:"110px"}} ></div>
               
-                  <div id={subCat.id}className="contImg">
-                    {index === 0 ? <img src={API+imagenCat} alt="" className="imgSection"/> : null}
-                   
-                    </div>
-              
-                  <Cards products={subCat} />
-                </div>:null
+                  <Cards products={prod} />
+                </div>
               ))}
             </div>
           </div>
         ) : null}
-        {articulos.length === 0 ? <Spinner imageUrl={Logo} /> : null}
+        {articulos.length === 0 ? <Spinner  /> : null}
       </div>
       <VerPedido id={id} />
     </div>

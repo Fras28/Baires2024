@@ -31,7 +31,6 @@
   height: 44px;
   align-items: center;
   display: flex;
-  margin-left: 10px;
 }
 .btnPlus {
   width: 100%;
@@ -102,18 +101,23 @@
 }
 .contCard {
   align-content: flex-start;
+  align-items: center;
   background-color: whitesmoke;
   display: flex;
   justify-content: space-between;
   margin-top: .25rem;
   gap: .5rem;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  border-radius: 8px;
-  padding: 1rem;
-  margin: .5rem;
-  flex-direction: column;
 }
-
+.contCardEdit {
+  align-items: center;
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: flex-start;
+  text-wrap: nowrap;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  overflow: hidden;
+}
 .price {
   margin: 0;
   font-family: "Montserrat", sans-serif;
@@ -151,37 +155,31 @@
 .contCardEdit {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-bottom: 10px;
-  background-color: whitesmoke;
-  text-wrap: nowrap;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  overflow: hidden;
-  flex-direction: column;
+  
 }
-
 
 .cardContentEdit {
   flex-grow: 1;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding: .5rem;
-  gap:4px;
+
 }
-.cardContentEdit > p{
-  margin: 0;
-}
+
 .nameProdEdit {
   font-weight: bold;
 }
 
+.priceEdit {
+  margin-top: 2px;
+  margin-bottom: 1px;
+}
 
-
+.divBtnProd {
+  margin-left: 10px;
+}
 
 
 
@@ -228,12 +226,4 @@
 
 .toggle-switch input[type="checkbox"]:checked + .toggle-switch-background .toggle-switch-handle {
   transform: translateX(40px);
-}
-
-
-.btnsEditCard{
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: space-around;
 }

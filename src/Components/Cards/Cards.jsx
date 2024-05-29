@@ -32,12 +32,10 @@ export const Cards = ({ products }) => {
 
   return (
     <>
-      
       {products.attributes.articulos.data.length !== 0 ? (
         <div className="carta">
           <h2
             className="titleSection"
-            style={{backgroundColor:`${comercio.attributes.rgb}`}}
           >
             {loguitoSection}
             <div>
@@ -54,8 +52,7 @@ export const Cards = ({ products }) => {
           </h2>
           <div className="rowsCard">
             {products.attributes.articulos.data.map((producto) => (
-              producto.attributes.publishedAt != null?
-              <Card producto={producto} />:null
+              <Card producto={producto} />
             ))}
           </div>
         </div>

@@ -6,6 +6,7 @@ import { VerPedido } from "../BtnBag/BtnBag";
 import { useDispatch, useSelector } from "react-redux";
 import Spinner from "../assets/Spinner/Spinner";
 import Horarios from "../BtnNavidad/Horarios";
+import { Foot } from "../Footer/Footer";
 
 
 export default function LandingPage(url) {
@@ -103,6 +104,7 @@ export default function LandingPage(url) {
         </svg>
       </div>
       <VerPedido id={url.location.pathname.slice(1, 3)} />
+      <Foot />
     </div>
   );
 }

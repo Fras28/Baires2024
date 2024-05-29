@@ -59,7 +59,7 @@ function App() {
         <Route exact path="/:id/Landing/Comander" component={AdminPanel} />
         <Route exact path="/:id/bag" component={BagXX} />
       </Switch>
-      <Foot />
+
       <MyFoot />
     </div>
   );

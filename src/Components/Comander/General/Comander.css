@@ -145,8 +145,12 @@ width: 75%;
   .cont3 {
     display: none;
   }
+
+
+
   .comandas-container {
-    display: none;
+   display: none;
+   visibility: hidden;
   }
 }
 

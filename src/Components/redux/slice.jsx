@@ -208,6 +208,9 @@ export const asyncProductComander= () => {
   };
 };
 
+
+
+
 const extraerArticulos = (data) => {
   // Verificar si existen atributos y categorías
   if (!data || !data.attributes || !data.attributes.categorias || !data.attributes.categorias.data) {
@@ -226,32 +229,7 @@ const extraerArticulos = (data) => {
   return articulos;
 };
 
-export const asyncPublishArtic = (data, id) => {
-  return async function (dispatch, getState) {
-    const initialState = getState();
-    const usuarioComander = initialState?.alldata?.usuarioComander;
 
-    try {
-      const response = await axios.put(`${API_GENERAL}/api/articulos/${id}`, data, {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${usuarioComander}`,
-        },
-      });
-      console.log("producto editado creo q correctamente");
-      console.log(response);
-
-      // Si asyncAllProducts es una acción de thunk, despacharla
-      if (typeof asyncAllProducts === 'function') {
-        dispatch(asyncAllProducts());
-      }
-      toast.success("Producto despubli");
-
-    } catch (error) {
-      console.error("Error fetching data EditProd Slice:", error);
-    }
-  };
-};
 
 
 
@@ -280,14 +258,39 @@ export const asyncCategorias = () => {
     }
   };
 };
+export const asyncAllSubCategoria = () => {
+  return async function (dispatch) {
+    try {
+      const response = await axios.get(API_SUBCAT);
 
+      const categorias = response.data?.data?.attributes?.categorias?.data;
+      if (!categorias) {
+        throw new Error("No categories found in the response");
+      }
+
+      const subCategorias = categorias?.flatMap(categoria => 
+        categoria?.attributes?.sub_categorias?.data.map(subCategoria => ({
+          id: subCategoria.id,
+          name: subCategoria?.attributes?.name,
+          publishedAt: subCategoria?.attributes?.publishedAt
+        }))
+      );
+
+      console.log("cargando subCategorias");
+
+      return dispatch(allSubCategorias(subCategorias));
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+};
 
 
 export const asyncSubCategoria = (id) => {
 
   return async function (dispatch) {
     try {
-      const response = await axios.get(API_2+id+"?populate=picture&populate=sub_categorias.articulos");
+      const response = await axios.get(API_2+id+"?populate=sub_categorias.articulos");
 
       const subCategorias = response.data.data;
 
@@ -298,23 +301,6 @@ export const asyncSubCategoria = (id) => {
     }
   };
 };
-
-
-
-
-export const asyncSubCategorias = () => {
-  return async function (dispatch) {
-    try {
-      const response = await axios.get(API_SUBCAT);
-      const subCategoriasFiltradas = response.data.data.filter(subCategoria => subCategoria.attributes.comercio.data.id === comercio); // Filtrar las subcategorías cuyo comercio tenga el id igual al valor de la constante comercio
-      const subCategoriasOrdenadas = subCategoriasFiltradas.sort((a, b) => a.id - b.id); // Ordenar las subcategorías filtradas
-      return dispatch(allSubCategorias(subCategoriasOrdenadas));
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-};
-
 
 
 
@@ -449,9 +435,85 @@ export const asyncLogIn = ({email,password}) => {
 };
 
 
+export const asyncAddProd = (data) => {
+  return async function (dispatch, getState) {
+    const initialState = getState();
+    const usuarioComander = initialState?.alldata?.usuarioComander;
 
+    try {
+      const response = await axios.post(`${API_GENERAL}/api/articulos`, data, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${usuarioComander}`,
+        },
+      });
+      console.log("producto editado creo q correctamente");
+      toast.success("Producto agregado correctamente!");
+      // Si asyncAllProducts es una acción de thunk, despacharla
+      if (typeof asyncAllProducts === 'function') {
+        dispatch(asyncAllProducts());
+      }
+      toast.success("Producto Agregado correctamente!");
+
+    } catch (error) {
+      console.error("Error fetching data EditProd Slice:", error);
+    }
+  };
+};
 
 export const asyncEditProd = (data, id) => {
+  return async function (dispatch, getState) {
+    const initialState = getState();
+    const usuarioComander = initialState?.alldata?.usuarioComander;
+
+    try {
+      const response = await axios.put(`${API_GENERAL}/api/articulos/${id}`, data, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${usuarioComander}`,
+        },
+      });
+      console.log("producto editado creo q correctamente");
+
+      // Si asyncAllProducts es una acción de thunk, despacharla
+      if (typeof asyncAllProducts === 'function') {
+        dispatch(asyncAllProducts());
+      }
+      toast.success("Producto editado correctamente!");
+
+    } catch (error) {
+      console.error("Error fetching data EditProd Slice:", error);
+    }
+  };
+};
+export const asyncEditSub = (data,id) => {
+  return async function (dispatch, getState) {
+    const initialState = getState();
+    const usuarioComander = initialState?.alldata?.usuarioComander;
+
+    try {
+      const response = await axios.put(`${API_GENERAL}/api/subcategorias/${id}`, data, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${usuarioComander}`,
+        },
+      });
+      console.log("producto editado creo q correctamente");
+
+      // Si asyncAllProducts es una acción de thunk, despacharla
+      if (typeof asyncAllProducts === 'function') {
+        dispatch(asyncAllSubCategoria());
+      }
+      toast.success("Sub Categoria editada correctamente!");
+
+    } catch (error) {
+      console.error("Error fetching data EditSubCat Slice:", error);
+    }
+  };
+};
+
+
+export const asyncPublishArtic = (data, id) => {
   return async function (dispatch, getState) {
     const initialState = getState();
     const usuarioComander = initialState?.alldata?.usuarioComander;
@@ -470,7 +532,34 @@ export const asyncEditProd = (data, id) => {
       if (typeof asyncAllProducts === 'function') {
         dispatch(asyncAllProducts());
       }
-      toast.success("Producto editado correctamente!");
+      toast.success("Producto despubli");
+
+    } catch (error) {
+      console.error("Error fetching data EditProd Slice:", error);
+    }
+  };
+};
+
+export const asyncPublishSubCat = (data, id) => {
+  return async function (dispatch, getState) {
+    const initialState = getState();
+    const usuarioComander = initialState?.alldata?.usuarioComander;
+
+    try {
+      const response = await axios.put(`${API_GENERAL}/api/subcategorias/${id}`, data, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${usuarioComander}`,
+        },
+      });
+      console.log("producto editado creo q correctamente");
+      console.log(response);
+
+      // Si asyncAllProducts es una acción de thunk, despacharla
+      if (typeof asyncAllProducts === 'function') {
+        dispatch(asyncAllSubCategoria());
+      }
+      toast.success("Sub categoria Modificada");
 
     } catch (error) {
       console.error("Error fetching data EditProd Slice:", error);

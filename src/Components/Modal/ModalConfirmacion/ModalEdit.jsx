@@ -11,7 +11,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function ModalGen({ Child, txtBtn }) {
+export default function ModalEdit({ Child, txtBtn }) {
   const dispatch = useDispatch();
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = React.useState(false); // Estado para indicar si handleProducts está en proceso
@@ -30,7 +30,7 @@ export default function ModalGen({ Child, txtBtn }) {
   return (
     <div style={{width:"100%"}}>
       <div >
-        <button onClick={handleClickOpen} className="generic buttonDash AdminBtns" disabled={loading}>
+        <button onClick={handleClickOpen} disabled={loading}>
           {txtBtn ? txtBtn : "+ Proveedor"}
         </button>
       </div>
@@ -44,12 +44,12 @@ export default function ModalGen({ Child, txtBtn }) {
           zIndex: 9999,
           boxShadow:
             "rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset",
+    
         }}
       >
         <DialogTitle className="infoNavi">
           <div>
-          
-            <img src={`${API}${comercio?.attributes?.logo?.data?.attributes?.url}`} alt="logo Coqui Cakes" width="125px" />
+            <img src={`${API}${comercio?.attributes?.logo?.data?.attributes?.url}`} alt="logo Coqui Cakes" width="100px" />
           </div>
           <div style={{ marginLeft: "30%" }}>
             <button className="exit" onClick={handleClose}>

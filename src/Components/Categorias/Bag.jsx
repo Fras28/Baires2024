@@ -5,7 +5,7 @@ import { Nav } from "../Nav/Nav.jsx";
 import { useDispatch, useSelector } from "react-redux";
 
 import Spinner from "../assets/Spinner/Spinner.jsx";
-import Logo from "../assets/Logo.png"
+
 import { CardsBag } from "../Cards/CardsBag.jsx";
 import ModalConfirm from "../Modal/ModalConfirmacion/ModalConfirmar.jsx";
 
@@ -33,7 +33,7 @@ const valores = favProd.map((e) => parseInt(e.attributes.price, 10));
           {favProd? <CardsBag products={favProd}/>:null}
        
         </div>
-       {favProd.length === 0? <Spinner imageUrl={Logo}/>:null} 
+       {favProd.length === 0? <Spinner />:null} 
       </div>
       <ModalConfirm total={total} />
     </div>

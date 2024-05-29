@@ -2,15 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Comander.css";
 import { asyncComandas, asyncGetProv } from "../../redux/slice";
-import LogIn from "../../BtnNavidad/LogIn";
 import FormularioVenta from "../formVenta/formVenta";
-import { Editer } from "../../Categorias/Editer";
 import LoginComponent from "../LogIn/LogIn.jsx";
 import SoloComandas from "./SoloComandas.jsx";
 import FormularioGastos from "../formVenta/formGastos";
-import ApexCharts from 'apexcharts';
-import ModalGen from "../../Modal/ModalConfirmacion/Modal.jsx";
-import EditProduct from "../formVenta/formEditProd.jsx";
+
 
 const ComandasComponent = () => {
   const dispatch = useDispatch();
@@ -36,7 +32,7 @@ const ComandasComponent = () => {
     if (usuarioComander) {
       obtenerComandasYProv();
     }
-  }, [usuarioComander, dispatch,comandasTrue, comandasFalse, getProvEjecutado]);
+  }, [usuarioComander,comandasTrue, comandasFalse, getProvEjecutado]);
 
   return (
     <div className="comandas-container">

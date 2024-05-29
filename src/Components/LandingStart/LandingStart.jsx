@@ -70,11 +70,17 @@ export const Inicio = (url) => {
             <button className="Btn" />
           </div>
           <div className="btnEnter2">
-            <a
-              className="Btn2"
-              href="https://www.google.com/maps/dir//DIRECCION+cafe+madre/@-38.7186808,-62.3059703,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x95edbd007363273b:0x236c527b644bb0b!2m2!1d-62.264685!2d-38.718755?entry=ttu"
-              target="_blank"
-            />
+            <b style={{color:"orange", marginBottom:"0"
+            }}>{comercio?.attributes?.direccion}</b>
+          <iframe
+          className="IFrame"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.118398361054!2d-62.26270920000004!3d-38.71509059999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95edbcad33685141%3A0xec794b3f20b8b973!2sLamadrid%20%26%20Hip%C3%B3lito%20Yrigoyen%2C%20Bah%C3%ADa%20Blanca%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1716305959709!5m2!1ses-419!2sar"
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+     
+            
             <Link to="/Comander" className="buttonComander">
               <img src={Morton} alt="" width="50px" backgroundColo="white" />
             </Link>

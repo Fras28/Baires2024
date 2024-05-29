@@ -66,7 +66,7 @@ const PdfGeneratos = () => {
     currentY += lineHeight + 5;
 
     productCom?.forEach((prod, index) => {
-      const categoryName = prod?.attributes?.name.replace(/\[Madre\]/g, '');
+      const categoryName = prod?.attributes?.name.replace(/\[[^\]]*\]/g, '');
       doc.setFontSize(14);
       doc.setFont("helvetica", "bold");
       doc.setTextColor(255, 165, 0);
@@ -115,7 +115,7 @@ textLines.forEach((line) => {
 
       // Añadir subcategorías y artículos
       prod?.attributes?.sub_categorias?.data.forEach((subCat) => {
-        const subCategoryName = subCat?.attributes?.name.replace(/\[Madre\]/g, '');
+        const subCategoryName = subCat?.attributes?.replace(/\[[^\]]*\]/g, '');
         const subText = `\t -${subCategoryName}-\n`;
 
         
