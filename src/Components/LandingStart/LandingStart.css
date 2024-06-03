@@ -10,15 +10,13 @@
   height: 50%;
 }
 .landingStart {
-  max-width: 100vh;
+  min-width: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 1rem;
 }
 
-.contAlerStart{
-  padding-top: 15rem;
-}
 
 
 .marcaLanging {
@@ -235,7 +233,5 @@
   }
 
 
-  .contAlerStart{
-    padding-top: 2rem;
-  }
+
 }

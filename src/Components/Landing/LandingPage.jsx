@@ -47,8 +47,8 @@ export default function LandingPage(url) {
         </div>
       </div>
 
-      <div className="conteinerLB2  ">
-        <div className="rowsCardL" style={{ backgroundColor: comercio?.attributes?.rgb}}>
+      <div className="conteinerLB2"  style={{ backgroundColor: comercio?.attributes?.rgb}}>
+        <div className="rowsCardL">
           {categorias?.map((categoria, index) => (
             categoria.attributes.publishedAt != null ?
             <NavLink
