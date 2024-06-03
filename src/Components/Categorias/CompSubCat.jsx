@@ -100,7 +100,7 @@ export const CompSubCat = ({ idCat }) => {
                         alt=""
                         style={{
                           position: "absolute",
-                          top: "50%", // Ajusta este valor para mover la imagen verticalmente
+                          top: "40%", // Ajusta este valor para mover la imagen verticalmente
                           left: "50%", // Ajusta este valor para mover la imagen horizontalmente
                           transform: "translate(-50%, -50%)", // Para centrar la imagen
                           width: "100%",
