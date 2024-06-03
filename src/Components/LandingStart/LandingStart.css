@@ -5,19 +5,17 @@
   height: 100vh;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 .LandingStartContainer {
   height: 50%;
 }
 .landingStart {
-  min-width: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1rem 0;
 }
-
-
 
 .marcaLanging {
   /* background-color: rgba(255, 255, 255, 0.541); */
@@ -207,20 +205,23 @@
   transform: scale(0.95);
 }
 
-.buttonComander{
+.buttonComander {
   background-color: white;
   margin: auto;
   padding: 5px;
   justify-content: center;
   border-radius: 20%;
-  box-shadow: 0px -23px 25px 0px rgba(0, 0, 0, 0.17) inset, 0px -36px 30px 0px rgba(0, 0, 0, 0.15) inset, 0px -79px 40px 0px rgba(0, 0, 0, 0.1) inset, 0px 2px 1px rgba(0, 0, 0, 0.06), 0px 4px 2px rgba(0, 0, 0, 0.09), 0px 8px 4px rgba(0, 0, 0, 0.09), 0px 16px 8px rgba(0, 0, 0, 0.09);
+  box-shadow: 0px -23px 25px 0px rgba(0, 0, 0, 0.17) inset,
+    0px -36px 30px 0px rgba(0, 0, 0, 0.15) inset,
+    0px -79px 40px 0px rgba(0, 0, 0, 0.1) inset, 0px 2px 1px rgba(0, 0, 0, 0.06),
+    0px 4px 2px rgba(0, 0, 0, 0.09), 0px 8px 4px rgba(0, 0, 0, 0.09),
+    0px 16px 8px rgba(0, 0, 0, 0.09);
 }
 
 @media (max-width: 600px) {
   .btnEnter {
     margin-top: 2rem;
   }
-
 
   .LandingBack {
     /* background-image: url("../assets/bgMadre2.png"); */
@@ -231,7 +232,4 @@
     display: flex;
     justify-content: center;
   }
-
-
-
 }
