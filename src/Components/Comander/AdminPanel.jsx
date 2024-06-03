@@ -11,6 +11,7 @@ import QRCodeGenerator from "./QrGen/QrGeneratos";
 import "./AdminPanel.css";
 import { EditerSub } from "../Categorias/EditerSub";
 import { Link, NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import Spinner from "../assets/Spinner/Spinner";
 
 const API = process.env.REACT_APP_API_STRAPI;
 
@@ -34,6 +35,7 @@ export const AdminPanel = () => {
     <>
       {usuarioComander ? (
         <div>
+          {allProduct === 0 ? <Spinner /> : null}
           <div className="admCont">
             <Link to="/" className="LinkAdmBase">
             <img
