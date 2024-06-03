@@ -64,7 +64,7 @@ export const CompSubCat = ({ idCat }) => {
   return (
     <div className="containerL">
       <Nav id={id} />
-      <div className="sectioner">
+
         {articulos?.length > 0 ? (
           <div className="sectioner">
             <p> Secciones : </p>
@@ -76,7 +76,7 @@ export const CompSubCat = ({ idCat }) => {
               ))}
           </div>
         ) : null}
-      </div>
+ 
       <div className="conteinerLC ">
         {articulos?.length > 0 ? (
           <div className="conteinerLB2 animate__animated  animate__zoomIn animate__faster">
