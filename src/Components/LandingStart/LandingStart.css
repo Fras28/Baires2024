@@ -13,8 +13,8 @@
 .landingStart {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 1rem 0;
+  justify-content:flex-start;
+  gap: 1rem;
 }
 
 .marcaLanging {

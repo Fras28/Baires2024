@@ -70,7 +70,7 @@ export const Inicio = (url) => {
             <button className="Btn" />
           </div>
           <div className="btnEnter2">
-            <b style={{color:"orange", marginBottom:"0"
+            <b style={{color:"orange", marginBottom:"0", padding:".5rem", backgroundColor:`${comercio?.attributes?.rgb}`, border:"solid 3px white"
             }}>{comercio?.attributes?.direccion}</b>
           <iframe
           className="IFrame"
