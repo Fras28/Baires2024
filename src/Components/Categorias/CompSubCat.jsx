@@ -93,6 +93,8 @@ export const CompSubCat = ({ idCat }) => {
                         overflow: "hidden",
                         position: "relative",
                         backgroundColor: "white",
+                        outline:"solid orange 2px",
+  
                       }}
                     >
                       <img
@@ -104,6 +106,7 @@ export const CompSubCat = ({ idCat }) => {
                           left: "50%", // Ajusta este valor para mover la imagen horizontalmente
                           transform: "translate(-50%, -50%)", // Para centrar la imagen
                           width: "100%",
+                    
                         }}
                       />
                     </div>
