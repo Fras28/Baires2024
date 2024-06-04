@@ -28,7 +28,7 @@ export const Cards = ({ products }) => {
   .flat() // Aplanar el array
   .map(part => part.trim())
   .filter(part => part !== ""); // Eliminar elementos vacíos después de la división
-
+console.log(products.attributes.articulos.data, " Cards para eliminar los despublicados");
 
   return (
     <>
@@ -52,7 +52,8 @@ export const Cards = ({ products }) => {
           </h2>
           <div className="rowsCard">
             {products.attributes.articulos.data.map((producto) => (
-              <Card producto={producto} />
+              producto.attributes.publishedAt !== null ?
+              <Card producto={producto} /> :null
             ))}
           </div>
         </div>
