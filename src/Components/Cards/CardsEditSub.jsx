@@ -10,9 +10,7 @@ export const CardsEditSub = ({ sub }) => {
   return (
     <div className="cartaEdit" >
       <div className="rowsCardEdit">
-        {sub?.map((e, index) => (
-          <CardEditeSub key={index} producto={e} />
-        ))}
+          <CardEditeSub producto={sub} />
       </div>
     </div>
   );
