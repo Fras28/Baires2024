@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
-import AlertDialogSlide from "../BtnNavidad/BtnNavidad";
 import "./LandingStart.css";
 import { useDispatch, useSelector } from "react-redux";
 import Morton from "../assets/dog face.png";
-import { asyncCategorias, asyncComercio } from "../redux/slice";
-import { ButtonEnter } from "./ButtonEnter/ButtonEnter";
-import CtaDNI from "../assets/BaneDNI.png";
+
 const API = process.env.REACT_APP_API_STRAPI;
 export const Inicio = (url) => {
   const dispatch = useDispatch();
