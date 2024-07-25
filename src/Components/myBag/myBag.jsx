@@ -97,7 +97,7 @@ export const BagXX = (id) => {
         <div className="boxPedido1"></div>
       </div>
     
-      <ModalConfirm total={total} sendComanda={sendComanda} />
+      {/* <ModalConfirm total={total} sendComanda={sendComanda} /> */}
     </div>
   );
 };

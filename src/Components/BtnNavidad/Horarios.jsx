@@ -65,7 +65,9 @@ export default function Horarios() {
     flexDirection: "column",
     alignItems: "center"}}>
         <h2>Horarios de la Semana</h2>
-            <ul style={{paddingLeft:"0"}}>
+
+<p>🍹OPEN - MIÉ A DOM</p>
+            {/* <ul style={{paddingLeft:"0"}}>
               {Object.entries(horarios).map(([dia, horas]) => (
                 <li key={dia} style={{display:"flex",justifyContent: "space-between",alignItems: "center", gap:"10px"}}>
                   <strong>{dia}:</strong>
@@ -76,7 +78,7 @@ export default function Horarios() {
                  
                 </li>
               ))}
-            </ul>
+            </ul> */}
         </DialogContent>
         <DialogActions> </DialogActions>
       </Dialog>

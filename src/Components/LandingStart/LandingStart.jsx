@@ -52,7 +52,7 @@ export const Inicio = (url) => {
               justifyContent: "center",
               outline: "solid white 2px",
               border: "none",
-              backgroundColor:`${comercio?.attributes?.rgb}`
+              backgroundColor:`#1A1A1A`
             }}
           >
             {comercio?.attributes?.msjInicio ||
@@ -62,7 +62,7 @@ export const Inicio = (url) => {
         <div className="BottomLanding">
           <div className="contAlerStart">
           <img src={API+comercio?.attributes?.logo?.data?.attributes?.url} alt="" style={{maxWidth:"350px"}}/>
-            <AlertDialogSlide />
+            {/* <AlertDialogSlide /> */}
           </div>
 
           <div className="btnEnter" onClick={handleButtonClick}>
@@ -70,11 +70,11 @@ export const Inicio = (url) => {
             <button className="Btn" />
           </div>
           <div className="btnEnter2">
-            <b style={{color:"orange", marginBottom:"0", padding:".5rem", backgroundColor:`${comercio?.attributes?.rgb}`, border:"solid 3px white"
+            <b style={{color:"orange", marginBottom:"0", padding:".5rem", backgroundColor:`#1A1A1A`, border:"solid 3px white"
             }}>{comercio?.attributes?.direccion}</b>
           <iframe
           className="IFrame"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.118398361054!2d-62.26270920000004!3d-38.71509059999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95edbcad33685141%3A0xec794b3f20b8b973!2sLamadrid%20%26%20Hip%C3%B3lito%20Yrigoyen%2C%20Bah%C3%ADa%20Blanca%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1716305959709!5m2!1ses-419!2sar"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.6680012784554!2d-62.2706576!3d-38.702469799999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95edbb5110863bd7%3A0x56650a0f87b8a530!2sAv.%20Leandro%20Niceforo%20Alem%201214%2C%20B8000%20Bah%C3%ADa%20Blanca%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1721865664690!5m2!1ses-419!2sar"
             allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

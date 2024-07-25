@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import jsPDF from "jspdf";
 import { useSelector } from "react-redux";
 import "./pdf.css";
-import Fondo from "../../assets/bgMadre2.png"
+import Fondo from "../../assets/bgNav.png"
 
 
 const PdfGeneratos = () => {
