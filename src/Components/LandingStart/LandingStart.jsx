@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./LandingStart.css";
 import { useDispatch, useSelector } from "react-redux";
-import Morton from "../assets/dog face.png";
+import Morton from "../assets/Morton.png";
 
 export const Inicio = (url) => {
  const dispatch = useDispatch();
@@ -72,7 +72,7 @@ export const Inicio = (url) => {
            />
            
            <Link to="/Comander" className="buttonComander">
-             <img src={Morton} alt="Morton icon" width="50px" />
+             <img src={Morton} alt="Morton icon" width="68px" />
            </Link>
          </div>
        </div>
