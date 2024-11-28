@@ -41,7 +41,7 @@ const Nav = () => {
   const { comercio } = useSelector((state) => state.alldata);
 
   return (
-    <div className="nav" style={{ backgroundImage: `url(${API + (comercio?.attributes?.fondo?.data?.attributes.url || '')})` }}>
+    <div className="nav">
       <div style={{ width: "40px", display: "flex", alignItems: "center" }}>
         {match && <BackButton />}
       </div>

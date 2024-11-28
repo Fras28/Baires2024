@@ -16,14 +16,16 @@ export default function LandingPage(url) {
 
 
   return (
-    <div className="animate__animated  animate__zoomIn">
-      {!categorias ? <Spinner /> : null}
-      <div className="naviLanding titCasa " style={{ backgroundImage: `url(${API + (comercio?.attributes?.fondo?.data?.attributes?.url)})` }}>
-        <div className="logoL">
-          <NavLink to={`/${id}`}>
-            <img     src={API+comercio?.attributes?.logo?.data?.attributes.url} alt="" width="250px" />
-          </NavLink>
-        </div>
+    <div className="animate__animated animate__zoomIn">
+    {!categorias ? <Spinner /> : null}
+    <div className="naviLanding titCasa" style={{ 
+      // backgroundImage: `url(${comercio?.attributes?.fondo?.data?.attributes?.url})`,
+    }}>
+      <div className="logoL">
+        <NavLink to={`/${id}`}>
+          <img src={comercio?.attributes?.logo?.data?.attributes.url} alt="" width="100%" />
+        </NavLink>
+      </div>
         <div className="navi2">
           <svg
             width="59"
@@ -47,63 +49,32 @@ export default function LandingPage(url) {
         </div>
       </div>
 
-      <div className="conteinerLB2"  style={{ backgroundColor: comercio?.attributes?.rgb}}>
+      <div className="conteinerLB2" style={{ backgroundColor: comercio?.attributes?.rgb }}>
         <div className="rowsCardL">
           {categorias?.map((categoria, index) => (
-            categoria.attributes.publishedAt != null ?
-            <NavLink
-              className={`navLink `}
-              to={
-                url.location.pathname === "/"
-                  ? `/${categoria.attributes?.name}`
-                  : `${url?.location?.pathname}/${categoria?.attributes?.name}`
-              }
-            >
-              <div
-                className={`titInicio ${
-                  index === comercio.length - 1 && index % 2 === 0
-                    ? "fullWidth"
-                    : ""
-                }`}
+            categoria.attributes.publishedAt && (
+              <NavLink
+                key={categoria.id}
+                className="navLink"
+                to={`/${id}/Landing/${categoria.attributes.name}`}
               >
-                <img
-                  src={categoria?.attributes?.picture?.data != null ?
-                    API +
-                      categoria?.attributes?.picture?.data?.attributes?.formats
-                        ?.small?.url : `${API}${comercio?.attributes?.logo?.data?.attributes?.url}`
-                  }
-                  alt="fotito"
-                />
-                <div>
-                 <p className="textCat">{categoria?.attributes?.name.replace(/\[.*?\]/g, '')}</p>
+                <div className={`titInicio ${index === categorias.length - 1 && index % 2 === 0 ? "fullWidth" : ""}`}>
+                  <img
+                    src={categoria?.attributes?.picture?.data?.attributes?.formats?.small?.url || 
+                         comercio?.attributes?.logo?.data?.attributes?.url}
+                    alt={categoria.attributes.name}
+                 
+                  />
+                  <div>
+                    <p className="textCat">{categoria.attributes.name.replace(/\[.*?\]/g, '')}</p>
+                  </div>
                 </div>
-              </div>
-            </NavLink> : null
+              </NavLink>
+            )
           ))}
         </div>
       </div>
-      <div className="navi2">
-        <svg
-          width="59"
-          height="2"
-          viewBox="0 0 59 2"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M59 0.999995L0 1" stroke="#E88A23" />
-        </svg>
-        <p className="naviTit3" style={{ backgroundColor:`${comercio?.attributes?.rgb}`}}> Seguinos en </p>
-        <svg
-          width="59"
-          height="2"
-          viewBox="0 0 59 2"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M59 0.999995L0 1" stroke="#E88A23" />
-        </svg>
-      </div>
-      <VerPedido id={url.location.pathname.slice(1, 3)} />
+      <VerPedido id={id} />
       <Foot />
     </div>
   );
